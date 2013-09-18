@@ -75,7 +75,7 @@ func Gtoj(t time.Time) (jyear, jmonth, jday int) {
 func IsLeap(t time.Time) bool {
 	jyear, _, _ := Gtoj(t)
 	switch jyear % 33 {
-	case 6, 22, 17, 13, 9, 5, 1, 30:
+	case 26, 22, 17, 13, 9, 5, 1, 30:
 		return true
 	}
 	return false
