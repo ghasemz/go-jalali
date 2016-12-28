@@ -64,6 +64,15 @@ func Jtog(year, month, day int, tt ...int) time.Time {
 	gy, gm, gd := jalaliToGregorian(year, month, day)
 	return time.Date(gy, time.Month(gm), gd, ts[0], ts[1], ts[2], ts[3], time.Local)
 }
+func JtogInZone(year, month, day int,loc *time.Location, tt ...int) time.Time {
+	ts := make([]int, 4)
+	for i, t := range tt {
+		ts[i] = t
+	}
+	gy, gm, gd := jalaliToGregorian(year, month, day)
+	return time.Date(gy, time.Month(gm), gd, ts[0], ts[1], ts[2], ts[3], loc)
+}
+
 
 // Gtoj converts t (gregorian date) to jalali date and returns jyear, jmonth, jday
 func Gtoj(t time.Time) (jyear, jmonth, jday int) {
